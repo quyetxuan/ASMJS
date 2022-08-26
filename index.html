@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="a1"></p>
+    <p id="a2"></p>
+    <p id="a3"></p>
+    <p id="a4"></p>
+    <p id="a5"> Messenger đã hiện lên rồi đây -.-</p>
+    <button id="sk">Messenger</button>
+    <script>
+        alert("Chào mừng bạn đến với úng dụng javaScript đầu tiên !")
+        
+        
+        var p1 = document.getElementById("a1");
+        var p2 = document.getElementById("a2");
+        var p3 = document.getElementById("a3");
+        var p4 = document.getElementById("a4");
+        const p5 = document.getElementById("a5");
+        p5.style="display:none;";
+        var tuoi = prompt("Nhập vào số tuổi:");
+
+        p1.innerHTML = " Tuổi : " + tuoi;
+
+        var thanhpho = prompt("Thành phố bạn sống:");
+        p2.innerHTML = "Thành phố : " + thanhpho;
+
+        var sdt = prompt("Số điện thoại của bạn:");
+        p3.innerHTML = "SĐT : " + sdt;
+
+        var yeucaunhap = true;
+        while(yeucaunhap){
+            var namsinh = prompt("Năm sinh của bạn :");
+            var now = new Date().getFullYear();
+            if(namsinh > now)
+            {
+                p4.innerHTML = "Bạn đừng có lừa tôi,năm nay là năm :" + now;
+            }else{
+                p4.innerHTML = "Năm sinh : " + namsinh ;
+                yeucaunhap = false;
+            }
+
+        }
+        document.getElementById("sk").onclick = 
+        function hienmess(){
+            p5.style="display:block;";
+        }
+        
+    </script>
+    
+
+    
+</body>
+</html>
