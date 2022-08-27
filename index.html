@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-     <div id="header" class="row">
+    <div id="header" class="row">
 
-     
-     <div><p>Tên : </p> <input type="text" id="name"></div>   
-     <p>DOB : </p><input type="text" id="birthday">
-     <p>Điểm toán : </p><input type="text" id="maths">
-     <p>Điểm lý : </p><input type="text" id="physical">
-     <p>Điểm hóa : </p><input type="text" id="chemisty">
-     
-     <br>
-     <button>Nhập</button>
-     <button>Tính điểm trung bình</button>
-     <button>Xác định học lực</button>
-     </div>
-     
 
-     <table border="1">
+        <div>
+            <p>Tên : </p> <input type="text" id="name">
+        </div>
+        <p>DOB : </p><input type="text" id="birthday">
+        <p>Điểm toán : </p><input type="text" id="maths">
+        <p>Điểm lý : </p><input type="text" id="physical">
+        <p>Điểm hóa : </p><input type="text" id="chemisty">
+
+        <br>
+
+        <button id="bt">Nhập</button>
+        <button>Tính điểm trung bình</button>
+        <button>Xác định học lực</button>
+    </div>
+
+
+    <table border="1">
         <tr>
             <th>Họ và tên</th>
             <th>Ngày tháng năm sinh</th>
@@ -33,19 +38,72 @@
             <th>Điểm trung bình</th>
             <th>Học lực</th>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        
-     </table>
+        <tbody id="bangdiem">
+
+        </tbody>
+    </table>
 </body>
-<!-- <script>
-    var hovaten = $('#hovaten').val();
-</script> -->
+<script>
+
+
+
+    var bt = document.getElementById('bt');
+    bt.onclick = function () {
+        console.log('bmc');
+        var tr = document.createElement('tr');
+
+        var tdHoTen = document.createElement('tdHoTen');
+
+        tdHoTen.innerHTML = "Đặng XUân QUyết";
+
+        tr.append(tdHoTen);
+
+        var tdNgayThangNamSinh = document.createElement('tdNgayThangNamSinh');
+
+        tdNgayThangNamSinh.innerHTML = "15/09/2001";
+
+        tr.append(tdNgayThangNamSinh);
+            //-------------------------------------
+        var td2 = document.createElement('td2');
+
+        td2.innerHTML = "Đặng XUân QUyết";
+
+        tr.append(td);
+
+        var td = document.createElement('td');
+
+        td.innerHTML = "Đặng XUân QUyết";
+
+        tr.append(td);
+
+        var td = document.createElement('td');
+
+        td.innerHTML = "Đặng XUân QUyết";
+
+        tr.append(td);
+
+        var td = document.createElement('td');
+
+        td.innerHTML = "Đặng XUân QUyết";
+
+        tr.append(td);
+
+        var td = document.createElement('td');
+
+        td.innerHTML = "Đặng XUân QUyết";
+
+        tr.append(td);
+
+        var td = document.createElement('td');
+
+        td.innerHTML = "Đặng XUân QUyết";
+
+        tr.append(td);
+        var bangdiem = document.getElementById('bangdiem');
+        bangdiem.append(tr);
+    };
+
+
+</script>
+
 </html>
