@@ -9,55 +9,54 @@
 </head>
 
 <body>
-
     <p id="d1"></p>
     <p id="d2"></p>
     <p id="d3"></p>
     <p id="d4"></p>
-    <p id="d5"> dòng tin nhắn này đã hiện lên</p>
-    <button id="hien">Hiện message</button>
+    <p id="d5"></p>
+    <p id="d6">rồi.... nó hiện lên rồi nè</p>
+    <button id="hien">bấm vào đi</button>
+
     <script>
-        alert("chào mừng bạn đến với ứng dụng JavaScript đầu tiên !");
+        alert("chào mừng bạn đến với javaScript");
 
         var ten = document.getElementById("d1");
         var thanhPho = document.getElementById("d2");
         var SDT = document.getElementById("d3");
-        var namSinh = document.getElementById("d4")
-        const mess = document.getElementById("d5")
+        var namSinh = document.getElementById("d4");
+        var mes = document.getElementById("d6");
+        mes.style="display:none;";
 
-        mess.style="display:none";
+        var nhapten = prompt("Nhập tên vào đây bạn ơi!");
+        ten.innerHTML = "Tên của bạn : " + nhapten;
 
+        var nhapThanhPho = prompt("Thành phố bạn sống ở đâu ???");
+        thanhPho.innerHTML = "Thành phố của bạn" + nhapThanhPho;
 
-        var nhapTen = prompt("Nhập tên bạn vào đây : ");
-        ten.innerHTML = "Tên của bạn: " + nhapTen;
-
-        var nhapThanhPho = prompt("Thành phố bạn đang sống : ");
-        thanhPho.innerHTML = "Thành phố : " + nhapThanhPho;
-
-        var nhapSDT = prompt("Số điện thoại của bạn : ");
-        SDT.innerHTML = "SĐT : " + nhapSDT;
+        var nhapSDT = prompt("Số điện thoại của bạn là :");
+        SDT.innerHTML = "Số điện thoại : " + nhapSDT;
 
         var nhap = true;
-        while (nhap){
-            var nhapNamSinh = prompt("Nhập năm sinh của bạn");
+        while (nhap) {
+            var nhapNamSinh = prompt("Nhập Năm sinh của bạn : ");
             var now = new Date().getFullYear();
-            if(nhapNamSinh > now){
-
-                namSinh.innerHTML = "Bạn đừng lừa tôi năm nay là năm :  " + now + " mà ";
-            }else{
-                namSinh.innerHTML = "Năm sinh : " + nhapNamSinh;
+    if (nhapNamSinh > now) {
+                namSinh.innerHTML = "Bạn đung lừa tôi bạn ơi.. năm nay là năm " + now;
+            } else {
+                namSinh.innerHTML = "Năm sinh của bạn : " + nhapNamSinh;
                 nhap = false;
             }
-                
+
         }
-        document.getElementById("hien").onclick =hienmess;
-        function hienmess(){
-            mess.style="display:block;";
-        }
+         document.getElementById("hien").onclick=hienmess;
+         function hienmess(){
+            mes.style=("display: block;");
+            
+         }
+
 
 
     </script>
-
 
 </body>
 
