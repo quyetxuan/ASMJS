@@ -6,104 +6,151 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <div id="header" class="row">
-
-
-        <div>
-            <p>Tên : </p> <input type="text" id="name">
-        </div>
-        <p>DOB : </p><input type="text" id="birthday">
-        <p>Điểm toán : </p><input type="text" id="maths">
-        <p>Điểm lý : </p><input type="text" id="physical">
-        <p>Điểm hóa : </p><input type="text" id="chemisty">
-
-        <br>
-
-        <button id="bt">Nhập</button>
-        <button>Tính điểm trung bình</button>
-        <button>Xác định học lực</button>
-    </div>
-
-
-    <table border="1">
-        <tr>
-            <th>Họ và tên</th>
-            <th>Ngày tháng năm sinh</th>
-            <th>Điểm toán</th>
-            <th>Điểm lý</th>
-            <th>Điểm hóa</th>
-            <th>Điểm trung bình</th>
-            <th>Học lực</th>
-        </tr>
-        <tbody id="bangdiem">
+    <p>Tên</p><input type="text" id="ten">
+    <p>DOB</p> <input type="text" id="ngaysinh">
+    <p>Lý</p><input type="text" id="diemly">
+    <p>Toán</p><input type="text" id="diemtoan">
+    <p>Hóa</p><input type="text" id="diemhoa">
+    <br>
+    <br>
+    <button id="Nhap">Nhập</button>
+    <button id="tinhdiemtrungbinh">Tính điểm trung bình</button>
+    <button id="xdhocluc">Xác định học lực</button>
+    <br>
+    <hr>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Ngày tháng năm sinh</th>
+                <th>Điểm toán</th>
+                <th>Điểm Lý</th>
+                <th>Điểm Hóa</th>
+                <th>Điểm Trung Bình</th>
+                <th>Học Lực</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
 
         </tbody>
     </table>
+
+    <script>
+
+
+        var index = 1;
+
+        function addRow() {
+
+
+            var tbody = document.getElementById("tbody");
+
+            console.log(tbody)
+            var tr1 = document.createElement("tr");
+            tbody.append(tr1);
+            tr1.id = index;
+
+
+            var tdHoTen = document.createElement("td");
+            var tdNgaySinh = document.createElement("td");
+            var tdDiemToan = document.createElement("td");
+            var tdDiemLy = document.createElement("td");
+            var tdDiemHoa = document.createElement("td");
+            var tdDiemTrungBinh = document.createElement("td");
+            var tdHocLuc = document.createElement("td");
+
+            tdDiemToan.id = "dToan" + index;
+            tdDiemLy.id = "dLy" + index;
+            tdDiemHoa.id = "dHoa" + index;
+            tdDiemTrungBinh.id = "dTrungBinh" + index;
+            tdHocLuc.id = "hLuc" + index;
+
+
+            index = index + 1;
+
+            tr1.append(tdHoTen);
+            tr1.append(tdNgaySinh);
+            tr1.append(tdDiemToan);
+            tr1.append(tdDiemLy);
+            tr1.append(tdDiemHoa);
+            tr1.append(tdDiemTrungBinh);
+            tr1.append(tdHocLuc);
+
+            var nhapTen = document.getElementById("ten")
+            var nhapNgaySinh = document.getElementById("ngaysinh");
+            var nhapDiemToan = document.getElementById("diemtoan");
+            var nhapDiemly = document.getElementById("diemly");
+            var nhapDiemHoa = document.getElementById("diemhoa");
+
+
+            tdHoTen.innerHTML = nhapTen.value;
+            tdNgaySinh.innerHTML = nhapNgaySinh.value;
+            tdDiemLy.innerHTML = nhapDiemly.value;
+            tdDiemHoa.innerHTML = nhapDiemHoa.value;
+            tdDiemToan.innerHTML = nhapDiemToan.value;
+            //tdDiemTrungBinh = 
+        };
+
+        var nhap = document.getElementById("Nhap");
+        nhap.onclick = addRow;
+
+        function DiemTB() {
+            for (var i = 1; i < index; i++) {
+                var llToan = document.getElementById("dToan" + i);
+                console.log(llToan.innerHTML);
+                var llLy = document.getElementById("dLy" + i);
+                var llHoa = document.getElementById("dHoa" + i);
+                var LLdTrungBinh = document.getElementById("dTrungBinh" + i)
+                console.log(llLy.innerHTML);
+                console.log(llHoa.innerHTML);
+                console.log(LLdTrungBinh.innerHTML);
+
+                LLdTrungBinh.innerHTML = (llLy.innerHTML - (- llHoa.innerHTML) - (- llToan.innerHTML)) / 3;
+            }
+
+        }
+        var DiemTrungBinh = document.getElementById("tinhdiemtrungbinh");
+        DiemTrungBinh.onclick = DiemTB;
+
+        function HocLuc(x) {
+            for (var i = 1; i < index; i++) {
+
+                var LLdTrungBinh2 = document.getElementById("dTrungBinh" + i);
+                console.log(LLdTrungBinh2.innerHTML);
+
+                var llHocLuc = document.getElementById("hLuc" + i);
+                console.log(llHocLuc.innerHTML);
+
+                llHocLuc.innerHTML = (LLdTrungBinh2.innerHTML);
+                llHocLuc.innerHTML = x ;
+                 
+
+                if (x >= 8) {
+                    llHocLuc = "Gioi";
+
+                } else if ((x >= 6.5) < (x < 8)) {
+                    llHocLuc= "kha";
+                } else if ((x >= 4) < (x < 6.5)) {
+                    llHocLuc= "trung binh";
+                } else if (x < 4) {
+                    llHocLuc = "yeu";
+                }
+
+            }
+
+        }
+
+
+        var XetHocLuc = document.getElementById("xdhocluc");
+        XetHocLuc.onclick = HocLuc ;
+
+    </script>
+
 </body>
-<script>
-
-
-
-    var bt = document.getElementById('bt');
-    bt.onclick = function () {
-        console.log('bmc');
-        var tr = document.createElement('tr');
-
-        var tdHoTen = document.createElement('tdHoTen');
-
-        tdHoTen.innerHTML = "Đặng XUân QUyết";
-
-        tr.append(tdHoTen);
-
-        var tdNgayThangNamSinh = document.createElement('tdNgayThangNamSinh');
-
-        tdNgayThangNamSinh.innerHTML = "15/09/2001";
-
-        tr.append(tdNgayThangNamSinh);
-            //-------------------------------------
-        var td2 = document.createElement('td2');
-
-        td2.innerHTML = "Đặng XUân QUyết";
-
-        tr.append(td);
-
-        var td = document.createElement('td');
-
-        td.innerHTML = "Đặng XUân QUyết";
-
-        tr.append(td);
-
-        var td = document.createElement('td');
-
-        td.innerHTML = "Đặng XUân QUyết";
-
-        tr.append(td);
-
-        var td = document.createElement('td');
-
-        td.innerHTML = "Đặng XUân QUyết";
-
-        tr.append(td);
-
-        var td = document.createElement('td');
-
-        td.innerHTML = "Đặng XUân QUyết";
-
-        tr.append(td);
-
-        var td = document.createElement('td');
-
-        td.innerHTML = "Đặng XUân QUyết";
-
-        tr.append(td);
-        var bangdiem = document.getElementById('bangdiem');
-        bangdiem.append(tr);
-    };
-
-
-</script>
 
 </html>
